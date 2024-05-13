@@ -45,16 +45,16 @@
                     <td>{{ isset($user->createdBy) ? $user->createdBy->name : 'Owner' }}</td>
                     <td>
                         <a class="hs-dropdown-toggle ti-btn ti-btn-sm ti-btn-success !rounded-full"
-                            href="{{ route('users.show', $user->id) }}"><i class="ri-eye-line"></i></a>
+                            href="{{ route('users.show', $user->id) }}"><i class="fe-eye"></i></a>
                         @if (!$user->created_by == null)
                             <a class="hs-dropdown-toggle ti-btn ti-btn-sm ti-btn-info !rounded-full"
-                                href="{{ route('users.edit', $user->id) }}"><i class="ri-edit-line"></i></a>
+                                href="{{ route('users.edit', $user->id) }}"> <i class="fe-edit"></i></i></a>
                             <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display:inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="hs-dropdown-toggle ti-btn ti-btn-sm ti-btn-danger !rounded-full"
                                     type="submit" onclick="return confirm('Are you sure?')"><i
-                                        class="ri-delete-bin-5-line"></i></button>
+                                        class="fe-trash-2"></i></button>
                             </form>
                         @endif
                     </td>
