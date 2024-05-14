@@ -24,11 +24,22 @@ class RolePermissionsSeeder extends Seeder
             'Users create',
             'Users edit',
             'Users delete',
+            'student',
         ];
         foreach ($permissions as $permissionName) {
             $permission = Permission::firstOrCreate(['name' => $permissionName]);
             $rolesAdmin->givePermissionTo($permission);
         }
         $this->command->info('Roles Admin role and permissions added.');
+
+        $rolesAdmin = Role::create(['name' => 'student']);
+        $permissions = [
+            'student',
+        ];
+        foreach ($permissions as $permissionName) {
+            $permission = Permission::firstOrCreate(['name' => $permissionName]);
+            $rolesAdmin->givePermissionTo($permission);
+        }
+        $this->command->info('student role and permissions added.');
     }
 }

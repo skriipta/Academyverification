@@ -74,16 +74,16 @@
                 <li class="menu-title mt-2">Apps</li>
 
                 <li>
-                    <a href="apps-calendar.html">
+                    <a href="{{ route('users.index') }}">
                         <i class="mdi mdi-calendar"></i>
-                        <span> Calendar </span>
+                        <span> users </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="apps-chat.html">
+                    <a href="{{ route('roles.index') }}">
                         <i class="mdi mdi-forum"></i>
-                        <span> Chat </span>
+                        <span> roles </span>
                     </a>
                 </li>
 
