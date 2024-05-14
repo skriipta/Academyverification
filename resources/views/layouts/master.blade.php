@@ -15,7 +15,7 @@
     <link href="{{ asset('assets/css/config/default/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/config/default/app.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/config/default/bootstrap-dark.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/app-dark.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets\css\config\default\app-dark.min.css.map') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/config/default/app-dark.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet">
     @yield('styles')
@@ -23,7 +23,7 @@
 
 
 <body class="loading"
-    data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": true}, "topbar": {"color": "light"}, "showRightSidebarOnPageLoad": true}'>
+    data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": true}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
     <!-- Begin page -->
     <div id="wrapper">
         @include('layouts.components.header')

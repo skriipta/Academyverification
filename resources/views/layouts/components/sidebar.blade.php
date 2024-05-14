@@ -65,7 +65,7 @@
                 <li class="menu-title">Navigation</li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="{{ url('/') }}">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span> Dashboard </span>
                     </a>
@@ -253,7 +253,7 @@
                                 <a href="layouts-vertical.html">Vertical</a>
                             </li>
                             <li>
-                                <a href="index.html">Horizontal</a>
+                                <a href="{{ url('/') }}">Horizontal</a>
                             </li>
                             <li>
                                 <a href="layouts-preloader.html">Preloader</a>
