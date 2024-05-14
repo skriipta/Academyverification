@@ -86,6 +86,24 @@
                         <span> roles </span>
                     </a>
                 </li>
+                <li>
+                    <a href="#">
+                        <i class="mdi mdi-forum"></i>
+                        <span> students </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="mdi mdi-forum"></i>
+                        <span> courses </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="mdi mdi-forum"></i>
+                        <span> certifcate </span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="#email" data-bs-toggle="collapse">
