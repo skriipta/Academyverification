@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Student extends Model
@@ -22,6 +23,10 @@ class Student extends Model
     {
         return $this->belongsToMany(Course::class, 'student_courses')
             ->withPivot('complete_course');
+    }
+    public function  certifcates(): HasMany
+    {
+        return $this->hasMany(Certificate::class);
     }
     public function user(): HasOne
     {

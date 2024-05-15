@@ -42,7 +42,7 @@
                             @endforeach
                         @endif
                     </td>
-                    <td>{{ isset($user->createdBy) ? $user->createdBy->name : 'Owner' }}</td>
+                    <td>{{ isset($user->createdBy) ? $user->createdBy->name : 'Unknown' }}</td>
                     <td>
                         <a class="hs-dropdown-toggle ti-btn ti-btn-sm ti-btn-success !rounded-full"
                             href="{{ route('users.show', $user->id) }}"><i class="fe-eye"></i></a>

@@ -72,38 +72,46 @@
                 </li>
 
                 <li class="menu-title mt-2">Apps</li>
-
-                <li>
-                    <a href="{{ route('users.index') }}">
-                        <i class="mdi mdi-calendar"></i>
-                        <span> users </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ route('roles.index') }}">
-                        <i class="mdi mdi-forum"></i>
-                        <span> roles </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="mdi mdi-forum"></i>
-                        <span> students </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="mdi mdi-forum"></i>
-                        <span> courses </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="mdi mdi-forum"></i>
-                        <span> certifcate </span>
-                    </a>
-                </li>
+                @can('Users view')
+                    <li>
+                        <a href="{{ route('users.index') }}">
+                            <i class="mdi mdi-calendar"></i>
+                            <span> users </span>
+                        </a>
+                    </li>
+                @endcan
+                @can('Roles view')
+                    <li>
+                        <a href="{{ route('roles.index') }}">
+                            <i class="mdi mdi-forum"></i>
+                            <span> roles </span>
+                        </a>
+                    </li>
+                @endcan
+                @can('student view')
+                    <li>
+                        <a href="{{ route('students.index') }}">
+                            <i class="mdi mdi-forum"></i>
+                            <span> students </span>
+                        </a>
+                    </li>
+                @endcan
+                @can('courses view')
+                    <li>
+                        <a href="{{ route('courses.index') }}">
+                            <i class="mdi mdi-forum"></i>
+                            <span> courses </span>
+                        </a>
+                    </li>
+                @endcan
+                @can('certificate view')
+                    <li>
+                        <a href="{{ route('certificats.index') }}">
+                            <i class="mdi mdi-forum"></i>
+                            <span> certifcate </span>
+                        </a>
+                    </li>
+                @endcan
 
                 <li>
                     <a href="#email" data-bs-toggle="collapse">

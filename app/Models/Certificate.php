@@ -17,10 +17,12 @@ class Certificate extends Model
         'crt_footer',
     ];
 
-
-
     public function course(): BelongsTo
     {
         return $this->BelongsTo(Course::class);
+    }
+    public function student(): BelongsTo
+    {
+        return $this->BelongsTo(Student::class);
     }
 }

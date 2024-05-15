@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('CASCADE');
-            $table->string('name');
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('CASCADE');
             $table->string('slug');
-            $table->string('crt_header');
-            $table->string('crt_footer');
             $table->timestamps();
         });
     }

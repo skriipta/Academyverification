@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Course extends Model
@@ -13,8 +14,11 @@ class Course extends Model
     use HasFactory;
     protected $fillable = [
         'course_name',
-        'courst_start_date',
-        'courst_end_date',
+        'crt_title',
+        'crt_header',
+        'crt_footer',
+        'course_start_date',
+        'course_end_date',
     ];
 
     // protected $casts = [
@@ -27,8 +31,8 @@ class Course extends Model
         return $this->belongsToMany(Student::class, 'student_courses')
             ->withPivot('complete_course');
     }
-    public function certificate(): HasOne
+    public function certificate(): HasMany
     {
-        return $this->HasOne(Certificate::class);
+        return $this->HasMany(Certificate::class);
     }
 }
