@@ -24,7 +24,7 @@ class Student extends Model
         return $this->belongsToMany(Course::class, 'student_courses')
             ->withPivot('complete_course');
     }
-    public function  certifcates(): HasMany
+    public function  certificates(): HasMany
     {
         return $this->hasMany(Certificate::class);
     }

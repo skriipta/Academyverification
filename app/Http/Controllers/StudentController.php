@@ -137,14 +137,41 @@ class StudentController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
         ]);
+        $student = Student::findOrFail($student->id);
 
         // Sync the checked courses with the student
         $student->courses()->sync($request->courses);
+        // Update the user information
+        $user = $student->user;
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        // Handle certificate creation and deletion
+        foreach ($request->courses as $courseId) {
+            $certificate = Certificate::where('student_id', $student->id)
+                ->where('course_id', $courseId)
+                ->first();
+
+            // If certificate doesn't exist, create a new one
+            if (!$certificate) {
+                $certificate = new Certificate();
+                $certificate->student_id = $student->id;
+                $certificate->course_id = $courseId;
+                $certificate->slug = Str::random(10); // Generate a random 10-character slug
+                $certificate->save();
+            }
+        }
+
+        // Delete certificates for unchecked courses
+        $student->certificates()
+            ->whereNotIn('course_id', $request->courses)
+            ->delete();
 
         // Redirect to the student index page
         return redirect()->route('students.index');
     }
-
 
     /**
      * Remove the specified resource from storage.
