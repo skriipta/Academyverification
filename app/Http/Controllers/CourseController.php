@@ -68,6 +68,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
+        // dd($course->students[1]->certificates[0]->slug);
         return view('courses.show', compact('course'));
     }
 

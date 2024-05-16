@@ -11,10 +11,8 @@ class Certificate extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
         'slug',
-        'crt_header',
-        'crt_footer',
+        'complete_course'
     ];
 
     public function course(): BelongsTo

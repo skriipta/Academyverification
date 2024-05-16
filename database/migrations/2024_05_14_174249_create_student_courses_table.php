@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('student_id')->references('id')->on('students')->onDelete('CASCADE');
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->restrictOnDelete();
-            $table->boolean('complete_course')->default(false);
             $table->timestamps();
         });
     }

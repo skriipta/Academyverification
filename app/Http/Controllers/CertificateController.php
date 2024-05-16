@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Certificate;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CertificateController extends Controller
 {
@@ -12,7 +13,19 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        //
+        $certificates = Certificate::all();
+        $perPage = 10;
+        $currentPage = request()->get('page', 1);
+        $pagedData = new LengthAwarePaginator(
+            $certificates->forPage($currentPage, $perPage),
+            $certificates->count(),
+            $perPage,
+            $currentPage,
+            ['path' => route('certificats.index')]
+        );
+        // dd($certificates[0]->course());
+        // dd($courses);
+        return view('certificats.index', compact('pagedData', 'certificates'));
     }
 
     /**
@@ -20,7 +33,7 @@ class CertificateController extends Controller
      */
     public function create()
     {
-        //
+        return view('certificats.create');
     }
 
     /**
@@ -36,7 +49,7 @@ class CertificateController extends Controller
      */
     public function show(Certificate $certificate)
     {
-        //
+        return view('certificats.show', compact('certificate'));
     }
 
     /**
@@ -44,7 +57,7 @@ class CertificateController extends Controller
      */
     public function edit(Certificate $certificate)
     {
-        //
+        return view('certificats.edit', compact('certificate'));
     }
 
     /**

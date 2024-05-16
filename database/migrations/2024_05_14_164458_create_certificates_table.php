@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')->references('id')->on('students')->onDelete('CASCADE');
             $table->string('slug');
+            $table->boolean('complete_course')->default(false);
             $table->timestamps();
         });
     }
