@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/students', StudentController::class);
     Route::resource('/courses', CourseController::class);
     Route::resource('/certificats', CertificateController::class);
+    Route::patch('/courses/{course}/give-certificate', [CourseController::class, 'GiveCertifcate'])->name('GiveCertifcate');
 });
 
 require __DIR__ . '/auth.php';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certificate;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -111,6 +112,21 @@ class CourseController extends Controller
         // Redirect to the course index page
         return redirect()->route('courses.index');
     }
+    public function GiveCertifcate(Course $course)
+    {
+        $checkedCourses = request()->get('completed_course', []);
+        $allCertificates = Certificate::where('course_id', $course->id)->get();
+        // dd($checkedCourses, $allCertificates[2]->id);
+
+        foreach ($allCertificates as $certificate) {
+            $certificate->complete_course = isset($checkedCourses[$certificate->id]);
+            $certificate->save();
+        }
+
+        // Redirect back with a success message
+        return redirect()->back()->with('message', 'Course completion statuses updated successfully.');
+    }
+
 
 
     /**
