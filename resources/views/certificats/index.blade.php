@@ -45,7 +45,7 @@
                                 @foreach ($certificates as $certificate)
                                     <tr>
                                         <td>{{ $certificate->student->name }}</td>
-                                        <td>{{ $certificate->course->name }}</td>
+                                        <td>{{ $certificate->course->course_name }}</td>
                                         <td>{{ $certificate->slug }}</td>
 
                                         <td>
